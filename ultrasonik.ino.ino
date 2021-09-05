@@ -1,8 +1,9 @@
-#define ECHOPIN 9
-#define TRIGPIN 8
+#define ECHOPIN 10
+#define TRIGPIN 9
 int HT;
 float distance = 0.0;
 void setup() {
+  Serial.begin(9600);
   // put your setup code here, to run once:
   pinMode(ECHOPIN,INPUT);
   pinMode(TRIGPIN,OUTPUT);
@@ -23,6 +24,7 @@ void loop() {
   distance = (distance*0.0343)/2;
   int body = (181-distance);
   int H2=HT-distance;
+  Serial.println("pedo");
   Serial.println(H2);
 
 }
