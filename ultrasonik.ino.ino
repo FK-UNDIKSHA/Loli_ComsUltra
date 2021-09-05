@@ -1,10 +1,12 @@
-#define ECHOPIN 7
+#define ECHOPIN 9
 #define TRIGPIN 8
+int HT;
+float distance = 0.0;
 void setup() {
   // put your setup code here, to run once:
   pinMode(ECHOPIN,INPUT);
   pinMode(TRIGPIN,OUTPUT);
-  pinMode(led,OUTPUT);
+  //pinMode(led,OUTPUT);
   delay(1000);
   HT = 200;
 
@@ -17,9 +19,10 @@ void loop() {
   digitalWrite(TRIGPIN,HIGH);
   delayMicroseconds(10);
   digitalWrite(TRIGPIN,LOW);
-  int distance = pulseIn(ECHOPIN,HIGH);
-  distance = distance/58;
-  H2=HT-distance;
-  Serial.print(H2);
+  distance = pulseIn(ECHOPIN,HIGH);
+  distance = (distance*0.0343)/2;
+  int body = (181-distance);
+  int H2=HT-distance;
+  Serial.println(H2);
 
 }
