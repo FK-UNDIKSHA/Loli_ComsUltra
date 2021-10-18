@@ -1,3 +1,8 @@
+/*
+####################################################
+#THIS IS DEPRECATED, NEW VERSION In serialData.ino  #
+#####################################################
+*/
 #define ECHOPIN 10
 #define TRIGPIN 9
 int HT;
